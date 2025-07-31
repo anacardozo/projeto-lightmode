@@ -30,6 +30,7 @@
 body{
     /* background: color image repeat position/size */
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 body *{
     font-family: 'Inter', sans-serif;
@@ -38,10 +39,12 @@ body *{
 
 #container{
     /* border: largura solid color*/
-    width: 360px;
+    width: 100%;
     /* alinhamento de uma caixa com largura fixa */
     margin: 56px auto 0px; /*deixa em cima, direita e esquerda automatico e em baixo */
     padding: 0 24px;
+    /* Quando aumentar a largura do dispositivo o maximo de largura que o container vai ter será o definido */
+    max-width: 588px;
 }
 /* procura a img dentro de profile */
 /* a altura segue o conteúdo da página */
@@ -170,4 +173,14 @@ footer{
     padding: 24px 0;
     text-align: center;
     font-size: 14px
+}
+
+/* media queries */
+@media (min-width: 700px){
+    :root{
+        --bg-url: url(./assets/bg-desktop.jpg);
+    }
+    .light{
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
 }
