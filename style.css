@@ -1,0 +1,173 @@
+/*tira o margin e padding automatico do navegador*/
+*{
+    margin: 0;
+    padding: 0;
+    /* faz com que a medida do tamanho da caixa seja medido da borda */
+    box-sizing: border-box;
+}
+
+/* criando variáveis */
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color:rgba(255, 255, 255, 0.1);
+    --surface-color-hover:rgba(255, 255, 255, 0.05);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color:rgba(0, 0, 0, 0.1);   
+    --surface-color-hover:rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+
+body{
+    /* background: color image repeat position/size */
+    background: var(--bg-url) no-repeat top center/cover;
+}
+body *{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    /* border: largura solid color*/
+    width: 360px;
+    /* alinhamento de uma caixa com largura fixa */
+    margin: 56px auto 0px; /*deixa em cima, direita e esquerda automatico e em baixo */
+    padding: 0 24px;
+}
+/* procura a img dentro de profile */
+/* a altura segue o conteúdo da página */
+/* div: elemento block; img: elemento inline;*/
+
+/* profile */
+#profile{
+    text-align: center;
+    padding: 24px;
+}
+/* elementos inline, deixam a tag pai defina aonde ele vai ficar*/
+#profile img{
+    width: 112px;
+
+}
+
+#profile p{
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/* switch */
+#switch{
+    /* o absolute vai ser relativo ao position dessa tela */
+    position: relative;
+    width: 64px;
+    /* utilizando o margin assim com elementos que são dispaly:block */
+    margin: 4px auto;
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    /* Todas essas propriedades para alinhar o centro */
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;;
+    transform: translateY(-50%);
+}
+/* position: absolute - deixa ele navegar por toda tela */
+/* eixo z - é significativa a camadas */
+
+.light #switch button{
+    right: 0;
+    left: initial;
+    /* left: initial - volta para sua posição natural */
+}
+
+/* span - display inline */
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 999px;
+}
+
+/* Links */
+ul{
+    /* Tira os pontos da frente dos links */
+    list-style: none; 
+    display: flex;
+    /* deixa os elementos um em baixo do outro */
+    flex-direction: column;
+    /* Espaço entre os elementos */
+    gap: 16px;
+    /* padding: (valor em cima e em baixo) (dos lados)*/
+    padding: 24px 0;
+}
+/* li é um display block ocupa todo o espaço do container*/
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    /* efeito embaçado */
+    backdrop-filter: blur(4px);
+    /* text-decoration (mexe na linha que fica em baixo do texto): none(tira a linha) */
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: background 0.2s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* social-links */
+
+#social-links{
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+    font-size: 24px;
+    justify-content: center;
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+#social-links a:hover{
+    background: var(--highlight-color);
+    padding: 16px;
+}
+
+footer{
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px
+}
